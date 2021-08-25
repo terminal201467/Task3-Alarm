@@ -7,10 +7,12 @@
 
 import UIKit
 
-class WeekDayViewController: UIViewController {
+class WeekDaySelectViewController: UIViewController {
     //MARK:-Properties
     let weekDaySelectView:WeekDaySelectView = .init()
     var weekDay:[Week] = [.Sun,.Mon,.Tue,.Wed,.Thu,.Fri,.Sat]
+    var chooseDay = Set<Week>()
+    weak var weekSelectDelegate:WeekDaySelectViewDelegate!
     
     //MARK:-LifeCycle
     override func loadView() {
@@ -21,8 +23,11 @@ class WeekDayViewController: UIViewController {
         super.viewDidLoad()
         setNavigationBar()
         setTableView()
-//        setWeekDayArray()
-//        weekDaySelectView.tableView.reloadData()
+    }
+    //在畫面結束之前把值傳出去
+    override func viewWillDisappear(_ animated: Bool){
+        //如果chooseDay跟repeatingDay的內容相同的話，就返回
+        weekSelectDelegate?.receiveWeekSelectData(data: chooseDay)
     }
     //MARK:-MethodForNavigationAction
     @objc func back(){
@@ -33,7 +38,7 @@ class WeekDayViewController: UIViewController {
     func setNavigationBar(){
         title = "重複"
         view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        let backButton = UIBarButtonItem(title: "返回", style: UIBarButtonItem.Style.plain, target: self, action: #selector(WeekDayViewController.back))
+        let backButton = UIBarButtonItem(title: "返回", style: UIBarButtonItem.Style.plain, target: self, action: #selector(WeekDaySelectViewController.back))
         backButton.tintColor = .orange
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
@@ -43,44 +48,37 @@ class WeekDayViewController: UIViewController {
         weekDaySelectView.tableView.delegate = self
         weekDaySelectView.tableView.dataSource = self
     }
-//    func setWeekDayArray(){
-//        weekDay.append(Week.Sun)
-//        weekDay.append(Week.Mon)
-//        weekDay.append(Week.Tue)
-//        weekDay.append(Week.Wed)
-//        weekDay.append(Week.Thu)
-//        weekDay.append(Week.Fri)
-//        weekDay.append(Week.Sat)
-//        print("weekDay的內容:",weekDay)
-//    }
 }
-extension WeekDayViewController:UITableViewDelegate,UITableViewDataSource{
+extension WeekDaySelectViewController:UITableViewDelegate,UITableViewDataSource{
     /*回傳有多少的cell**/
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("1.weekDay的數量:",weekDay.count)
         return weekDay.count
     }
     /*回傳cell的內容**/
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //有一個重點是weekDay裡面的東西沒有進來
-        print("2.weekDay的內容",weekDay)
         let weekDayCell = weekDay[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = weekDayCell.text
+        cell.tintColor = .orange
+        let chooseDayContained = chooseDay.contains(weekDayCell)
+        cell.accessoryType = chooseDayContained ? .checkmark:.none
         return cell
     }
-    
     /*回傳點選cell的結果**/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let weekDaySelect = weekDay[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier:"Cell", for: indexPath)
-        if indexPath.row != nil{
-            cell.accessoryType = .checkmark
+        let weekDayCell = weekDay[indexPath.row]
+        let chooseDayContained = chooseDay.contains(weekDayCell)
+        if chooseDayContained{
+            chooseDay.remove(weekDayCell)
         }else{
-            cell.accessoryType = .none
+            chooseDay.insert(weekDayCell)
         }
+        tableView.reloadData()
     }
 }
+
+
 
 
 

@@ -28,7 +28,8 @@
 		9750736426BA3D210041AC1D /* timer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9750736326BA3D210041AC1D /* timer@2x.png */; };
 		9750736626BA3D2B0041AC1D /* globe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9750736526BA3D2B0041AC1D /* globe@2x.png */; };
 		9750736826BA3FB90041AC1D /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9750736726BA3FB90041AC1D /* AlarmView.swift */; };
-		97FA49F426C668180051B680 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FA49F326C668180051B680 /* Concentration.swift */; };
+		97D3EF5626D51C710023D1B3 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D3EF5526D51C710023D1B3 /* AlarmTableViewCell.swift */; };
+		97FA49F426C668180051B680 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FA49F326C668180051B680 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +56,8 @@
 		9750736326BA3D210041AC1D /* timer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer@2x.png"; sourceTree = "<group>"; };
 		9750736526BA3D2B0041AC1D /* globe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "globe@2x.png"; sourceTree = "<group>"; };
 		9750736726BA3FB90041AC1D /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
-		97FA49F326C668180051B680 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Concentration.swift; path = SomeNewProject/Model/Concentration.swift; sourceTree = SOURCE_ROOT; };
+		97D3EF5526D51C710023D1B3 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
+		97FA49F326C668180051B680 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Model.swift; path = SomeNewProject/Model/Model.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +127,8 @@
 		9750735826BA296B0041AC1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				97FA49F326C668180051B680 /* Concentration.swift */,
 				974D33A326CF0F0B00EEA7E2 /* Protocol.swift */,
+				97FA49F326C668180051B680 /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,6 +138,7 @@
 			children = (
 				9750735D26BA2F2D0041AC1D /* CreateAlarmView.swift */,
 				9750736726BA3FB90041AC1D /* AlarmView.swift */,
+				97D3EF5426D51C410023D1B3 /* TableViewCell */,
 				974E185E26CB6BC70049C5A4 /* SelectPushViewController */,
 			);
 			path = View;
@@ -153,6 +156,14 @@
 				974D33C926D019C300EEA7E2 /* SelectPushViewController */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		97D3EF5426D51C410023D1B3 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				97D3EF5526D51C710023D1B3 /* AlarmTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,12 +240,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97FA49F426C668180051B680 /* Concentration.swift in Sources */,
+				97FA49F426C668180051B680 /* Model.swift in Sources */,
 				974E186226CB866E0049C5A4 /* EditAlarmNameView.swift in Sources */,
 				9750735E26BA2F2D0041AC1D /* CreateAlarmView.swift in Sources */,
 				9750735126B930840041AC1D /* AlarmViewController.swift in Sources */,
 				9750736826BA3FB90041AC1D /* AlarmView.swift in Sources */,
 				974D33A426CF0F0B00EEA7E2 /* Protocol.swift in Sources */,
+				97D3EF5626D51C710023D1B3 /* AlarmTableViewCell.swift in Sources */,
 				974A090A26B69B200033D093 /* ViewController.swift in Sources */,
 				974E186026CB6C0D0049C5A4 /* WeekDaySelectView.swift in Sources */,
 				9750735526B930A90041AC1D /* WorldTimeViewController.swift in Sources */,

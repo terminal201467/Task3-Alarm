@@ -90,7 +90,5 @@ class CreatAlarmView: UIView {
         middleStackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         middleStackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
-    
-    
-
 }
+

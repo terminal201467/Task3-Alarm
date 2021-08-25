@@ -20,7 +20,7 @@ class WeekDaySelectView: UIView {
         
         let footerView = UIView()
         footerView.backgroundColor = .black
-        footerView.frame.size.height = 50
+        footerView.frame.size.height = 300
         tableView.tableFooterView = footerView
         return tableView
     }()
@@ -28,7 +28,6 @@ class WeekDaySelectView: UIView {
     lazy var stackView:UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [tableView])
         stackView.axis = .horizontal
-        stackView.alignment = .center
         stackView.spacing = 0
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView

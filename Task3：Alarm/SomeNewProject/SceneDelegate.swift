@@ -19,6 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window!.backgroundColor = UIColor.black
         let vc = ViewController()
         self.window!.rootViewController = vc
+//        let vc = EditAlarmNameViewController()
+//        let nav = UINavigationController(rootViewController: vc)
+//        self.window?.rootViewController = nav
         self.window!.makeKeyAndVisible()
         
     }
